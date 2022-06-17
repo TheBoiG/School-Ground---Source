@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cals {
+            width: 1024px;
+            height: 650px;
+            margin: 50px auto;
+        }
+
+        .top1,
+        .top2 {
+            height: 324px;
+            border: 1px solid #ccd;
+            border-bottom: 1px solid #ccd;
+        }
+
+        .top2 div,
+        .top1 div {
+            display: inline-block;
+            float: left;
+        }
+
+        .left {
+            width: calc(25% - 1px);
+            border-right: 1px solid #ccd;
+            height: 324px;
+        }
+
+        .right {
+            width: calc(25% - 1px);
+            border-left: 1px solid #ccd;
+            height: 324px;
+        }
+
+        .center {
+            width: calc(50%);
+            height: 324px;
+            background-color: #ccd;
+        }
+
+        .top2 {
+            margin-top: 15px;
+        }
+
+        .center .tops {
+            width: 100%;
+        }
+
+        .center .tops div {
+            width: 25%;
+            border: 1px solid #000;
+            height: 120px;
+            margin-right: 3.5%;
+            margin-left: 3.5%;
+            margin-top: 3.5%;
+        }
+
+        .center .tops div:nth-child(2) {
+            margin-top: 100px;
+        }
+
+        .nl div {
+            display: block;
+            width: 400px;
+            height: 30px;
+            line-height: 30px;
+            padding-left: 15px;
+            border-bottom: 1px solid #ccd;
+        }
+
+        .qpq {
+            width: 100%;
+        }
+
+        .qpq div {
+            height: 162px;
+            width: calc(100%);
+            /* background-color: #000; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        div .bottom {
+            height: 100px;
+            display: block;
+            width: 100%;
+            border-bottom: 1px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .bottom div {
+            width: 18%;
+            background-color: #000;
+            height: 80px;
+        }
+
+        .qpq div div {
+            width: 50%;
+            height: 80%;
+            background-color: antiquewhite;
+        }
+
+        .top2 .tops {
+            margin-bottom: 25px;
+        }
+
+        .bg1 {
+            /* background: url(./images/Calculator.png) no-repeat 100% 100%; */
+            background-size: 100% 100%;
+        }
+
+        .login {
+            width: 500px;
+            border-radius: 10px;
+            margin: 80px auto;
+            overflow: hidden;
+            border: 1px solid #ccd;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .login div {
+            display: flex;
+            margin-top: 15px;
+        }
+
+        .login label {
+            width: 40%;
+            flex: 0.2;
+            text-align: right;
+            padding-right: 5px;
+            font-size: 12px;
+        }
+
+        .login input {
+            width: 60%;
+            flex: 0.5;
+        }
+
+        .login button {
+            padding: 5px 10px;
+            margin: 20px 10px;
+            float: right;
+        }
+
+
+        #zj {
+            width: 150px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="login">
+        <h1>game login</h1>
+        <div>
+            <label for="name">username:</label>
+            <input id="username" type="text">
+        </div>
+        <div>
+            <label for="name">password:</label>
+            <input id="passworld" type="text">
+        </div>
+        <button id="login">login</button>
+        <button id="register">register</button>
+    </div>
+    <div class="cals container">
+        <div class="top1">
+            <div class="left">
+                <div class="nl enemy">
+                    <div>
+                        cost: <span>2</span>
+                    </div>
+                    <div>
+                        health: <span>20</span>
+                    </div>
+                </div>
+            </div>
+            <div class="center">
+                <div class="bottom enemysBottome">
+                    <div class="bg1"></div>
+                    <div class="bg1"></div>
+                    <div class="bg1"></div>
+                    <div class="bg1"></div>
+                    <div class="bg1"></div>
+                </div>
+                <div class="tops enemy">
+                    <div class="item1 bg1"></div>
+                    <div class="item2 bg1"></div>
+                    <div class="item3 bg1"></div>
+                </div>
+
+            </div>
+            <div class="right">
+                <div class="qpq">
+                    <div>
+                        <div class="bg1"></div>
+                    </div>
+                    <div>
+                        <div class="bg1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="top2 ">
+            <div class="left">
+                <div class="nl players">
+                    <div>
+                        cost: <span>2</span>
+                    </div>
+                    <div>
+                        health: <span>20</span>
+                    </div>
+                    <div>
+                        state: <span id="state">enemy play card</span>
+                    </div>
+                    <div>
+                        <button id="zj">ready</button>
+                    </div>
+                </div>
+            </div>
+            <div class="center ">
+                <div class="tops player">
+                    <div id="1" style="margin-top: 80px;" class="item1 bg1"></div>
+                    <div id="2" style="margin-top: 40px;" class="item2 bg1"></div>
+                    <div id="3" style="margin-top: 80px;" class="item3 bg1"></div>
+                </div>
+                <div class="bottom playercardholder cards">
+                    <div class="bg1"></div>
+                    <div class="bg1"></div>
+                    <div class="bg1"></div>
+                    <div class="bg1"></div>
+                    <div class="bg1"></div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="qpq">
+                    <div>
+                        <div class="bg1"></div>
+                    </div>
+                    <div>
+                        <div class="bg1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+
+<script>
+    $('.container').hide()
+    let user = "";
+    $('#register').click(e => {
+        if (!$('#username').val() || !$('#passworld').val()) {
+            alert("can not be empty")
+            return;
+        }
+        $.ajax({
+            url: '/regit',
+            type: "post",
+            data: {
+                username: $('#username').val(),
+                password: $('#passworld').val()
+            },
+            success(d) {
+                alert(d.msg)
+                console.log(d)
+            }
+        })
+    })
+    $('#login').click(e => {
+        if (!$('#username').val() || !$('#passworld').val()) {
+            alert("can not be empty")
+            return;
+        }
+        $.ajax({
+            url: '/login',
+            type: "post",
+            data: {
+                username: $('#username').val(),
+                password: $('#passworld').val()
+            },
+            success(d) {
+                alert(d.msg)
+                if (d.msg == "login successful") {
+                    let tools = new Tools($('#username').val())
+                    $('.container').show()
+                    $('.login').hide()
+                }
+            }
+        })
+
+    })
+</script>
+<script>
+
+    let ag = null;
+    $('#state').html("waiting another player")
+
+    let images = [
+        {
+            imageSrc: "Pencil.png",
+            attackno: 2,
+            cardhealth: 1,
+            corecost: 1
+        },
+        {
+            imageSrc: "Rubber.png",
+            attackno: 1,
+            cardhealth: 2,
+            corecost: 1
+        },
+        {
+            imageSrc: "Paper.png",
+            attackno: 1,
+            cardhealth: 1,
+            corecost: 1,
+        },
+        {
+            imageSrc: 'Chalk.png',
+            attackno: 1,
+            corecost: 1,
+            cardhealth: 1
+        },
+        {
+            imageSrc: 'Pen.png',
+            attackno: 3,
+            corecost: 3,
+            cardhealth: 2
+
+        },
+        {
+
+            imageSrc: 'mechanicalPencil.png',
+            attackno: 2,
+            corecost: 3,
+            cardhealth: 3
+
+        },
+        {
+            imageSrc: 'highlighter.png',
+            attackno: 2,
+            corecost: 3,
+            cardhealth: 1
+
+        },
+
+
+        {
+
+            imageSrc: 'Calculator.png',
+            attackno: 2,
+            corecost: 5,
+            cardhealth: 6
+
+        },
+        {
+
+            imageSrc: 'Scissor.png',
+            attackno: 5,
+            corecost: 5,
+            cardhealth: 3
+
+        },
+        {
+
+            imageSrc: 'Stapler.png',
+            attackno: 3,
+            corecost: 5,
+            cardhealth: 4
+
+        },
+        {
+
+            imageSrc: 'HolePuncher.png',
+            attackno: 1,
+            corecost: 5,
+            cardhealth: 8
+        },
+    
+        {
+
+            imageSrc: 'Laptop.png',
+            attackno: 3,
+            corecost: 10,
+            cardhealth: 9,
+        },
+        {
+
+            imageSrc: 'Smartwatch.png',
+            attackno: 5,
+            corecost: 10,
+            cardhealth: 5,
+        },
+    ]
+    let arr = images.map(e => e.imageSrc)
+    let bg = null;
+    class Tools {
+        constructor(token) {
+            let _this = this;
+            this.games = {
+                Cards: {}
+            }
+            this.sokit = new WebSocket('ws:127.0.0.1:3008')
+            this.sokit.onclose = function () {
+                console.log("device disconnected")
+            }
+            this.sokit.onclose = () => {
+                setTimeout(() => {
+                    this.sokit = new WebSocket('ws:127.0.0.1:3008')
+                }, 2000)
+            }
+            this.sokit.onmessage = function (e) {
+                let data = JSON.parse(e.data)
+                if(data.flg == "token"){
+                    this.send(JSON.stringify({
+                        flg:"token"
+                    }))
+                    return;
+                }
+                if (data.msg == "drawcard") {
+                    if (data.gameOver) {
+                        setState(data.data.me.life !== 0 ? "player win" : "enemy win")
+                        $('#zj').html("ready")
+                        return
+                    }
+                    if (data.data.reload) {
+                        _this.games.Cards = {}
+                        $('#zj').html("choosing complete")
+                    }
+                    _this.renderTools(data)
+                }
+                if (data.msg == "please ready") {
+                    _this.ready()
+                }
+            }
+            this.token = token;
+            this.sokit.sendMessage = function (obj) {
+                obj.token = _this.token
+                this.send(JSON.stringify(obj))
+            }
+            this.sokit.addEventListener('open', function () {
+                var message = {
+                    state: "liveIn",
+                    token: _this.token
+                };
+                message = JSON.stringify(message);
+                this.send(message)
+            })
+            $('#zj').click(e => {
+                switch ($('#zj').html()) {
+                    case "ready":
+                        this.sokit.sendMessage({
+                            state: 'play',
+                        })
+                        $('#zj').html("choosing complete");
+                        return;
+                        break;
+                    case "choosing complete":
+                    
+                        let Cards = []
+                        if(this.games.Cards['2']){
+                          Cards.push(this.games.Cards['2'])
+                        }
+                        if(this.games.Cards['1']){
+                            Cards.push(this.games.Cards['1'])
+                        }
+                        if(this.games.Cards['3']){
+                          Cards.push(this.games.Cards['3'])
+                        }
+                        this.sokit.sendMessage({
+                            state: 'go',
+                            Produce: Cards,
+                            token: this.token,
+                        })
+                        $('#zj').html("waiting enemy")
+                        break
+                    case "drawcard":
+                        this.sokit.send(JSON.stringify({
+                            code: 1,
+                            msg: ag,
+                            token: this.token
+                        }))
+                        this.reload()
+                        $('#zj').html("choosing complete")
+                        break
+                    default:
+                        $('#zj').html("waiting enemy")
+                        break
+                }
+            })
+
+        }
+        renderTools(data) {
+            this.dist = data;
+            this.setOpponent(data.data.to, data.data.state)
+            this.setMe(data.data.me)
+            $(".playercardholder div").click(e => {
+                bg = $(e.target).attr('bg')
+            })
+            let indexs = []
+            $('.player .bg1').click(e => {
+                if (bg) {
+                    let key = Object.keys(this.games.Cards).map(e=>this.games.Cards[e])
+                    if (key.indexOf(bg) == -1) {
+                        let nums = $('.players div:nth-child(1) span').html() - images[bg].corecost
+                        if(nums<0){
+                            setState("not enough cost")
+                            return
+                        }
+                        $('.players div:nth-child(1) span').html(nums)
+                    }
+                    if (key.indexOf(bg) !== -1) {
+                        let index = key.indexOf(bg)
+                        let i = Object.keys(this.games.Cards).map(e=>(this.games.Cards[e]==bg?e:null)).filter(e=>e)[0]
+                        delete this.games.Cards[$('.player .bg1#' + i).attr('id')]
+                        $('.player .bg1#' + i).css("background-image", `url(./images/)`)
+                    }
+                    $(e.target).css("background-image", `url(./images/${arr[bg]})`)
+                    this.games.Cards[$(e.target).attr('id')] = bg;
+                    console.log(this.games.Cards)
+                }
+            })
+        }
+        ready() {
+            $('.state').html("please ready")
+            this.cmd = true;
+        }
+        setOpponent(data, state) {
+            $('.enemy div:nth-child(1) span').html(data.energy)
+            $('.enemy div:nth-child(2) span').html(data.life)
+            if (state == "ready") {
+                $('.enemy .bg1:nth-child(1)').css("background-image", `url(./images)`)
+                $('.enemy .bg1:nth-child(2)').css("background-image", `url(./images)`)
+                $('.enemy .bg1:nth-child(3)').css("background-image", `url(./images)`)
+            } else {
+                this.battle()
+                $('.enemy .bg1:nth-child(1)').css("background-image", `url(./images/${arr[data.battle[1]]})`)
+                $('.enemy .bg1:nth-child(2)').css("background-image", `url(./images/${arr[data.battle[0]]})`)
+                $('.enemy .bg1:nth-child(3)').css("background-image", `url(./images/${arr[data.battle[2]]})`)
+            }
+        }
+        reload() {
+
+        }
+        setMe(data) {
+            if(data.life<0){
+                $('.players div:nth-child(2) span').html(0)
+                setState("You lost")
+            }else{
+            
+                $('.players div:nth-child(2) span').html(data.life)
+            }
+            $('.players div:nth-child(1) span').html(data.energy)
+            if (arr[data.battle[1]]) {
+                $('.player .bg1:nth-child(1)').css("background-image", `url(./images/${arr[data.battle[1]]})`)
+            } else {
+                $('.player .bg1:nth-child(1)').css("background-image", `url(./images/)`)
+            }
+            if (arr[data.battle[0]]) {
+                $('.player .bg1:nth-child(2)').css("background-image", `url(./images/${arr[data.battle[0]]})`)
+            } else {
+                $('.player .bg1:nth-child(2)').css("background-image", `url(./images/)`)
+            }
+            if (arr[data.battle[2]]) {
+                $('.player .bg1:nth-child(3)').css("background-image", `url(./images/${arr[data.battle[2]]})`)
+            } else {
+                $('.player .bg1:nth-child(3)').css("background-image", `url(./images/)`)
+            }
+            data.Cards.map((e, i) => {
+                if (arr[e]) {
+                    $('.cards div:nth-child(' + (i + 1) + ')').attr('bg', e).css("background-image", `url(./images/${arr[e]})`)
+                }
+            })
+        }
+       battle() {
+            if (!this.dist.data.me.battle.length || !this.dist.data.me.battle.length) {
+                return;
+            }
+            let to = this.dist.data.to.battle.map(se => images.filter(e => e.imageSrc == arr[se])[0]).filter(e=>e)
+            let me = this.dist.data.me.battle.map(se => images.filter(e => e.imageSrc == arr[se])[0]).filter(e=>e)
+            let toOne = to.shift()
+            let meOne = me.shift()
+            let ag = ""
+            let test = 0;
+             let flg = true;
+            while (flg) {
+                test++;
+            
+                meOne.cardhealth -=  toOne.attackno
+                toOne.cardhealth -= meOne.attackno;
+                if(meOne.cardhealth<=0&&toOne.cardhealth>0){
+                    console.log("fail")
+                    let tmp = me.shift()
+                    if(tmp){
+                        meOne = tmp;
+                    }else{
+                        ag = "fail"
+                        flg = false;
+                    }
+                }else if(meOne.cardhealth>0&&toOne.cardhealth<=0){
+                    console.log("win")
+                    let tmp = to.shift()
+                    if(tmp){
+                        toOne = tmp;
+                    }else{
+                        ag = "win"
+                        flg = false;
+                    
+                    }
+                }else if(meOne.cardhealth<=0&&toOne.cardhealth<=0){
+                    let tmp = me.shift()
+                    let tmp1 = to.shift()
+                    if(tmp&&!tmp1){
+                        ag = "win"
+                        flg = false;
+                    }else if(!tmp&&tmp1){
+                        ag = "fail"
+                        flg = false;
+                    }else if(!tmp&&!tmp1){
+                        ag = "draw"
+                        flg = false;
+                    }
+                }
+            }
+            setState(ag)
+            $("#zj").html("drawcard")
+            return ag
+        }
+    }
+
+    function GetRequest() {
+        var url = location.search; 
+        var theRequest = new Object();
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            strs = str.split("&");
+            for (var i = 0; i < strs.length; i++) {
+                theRequest[strs[i].split("=")[0]] = decodeURI(strs[i].split("=")[1]);
+            }
+        }
+        return theRequest;
+    }
+    let query = GetRequest();
+    if (query.token) {
+        new Tools(query.token)
+        $('.container').show()
+        $('.login').hide()
+    }
+    function setState(str = "") {
+        $('#state').html(str)
+    }
+</script>
+
+</html>
